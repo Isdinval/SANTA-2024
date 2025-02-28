@@ -12,10 +12,17 @@ Le projet utilise des techniques avancées de **traitement du langage naturel (N
 
 Le projet utilise une combinaison de techniques d'optimisation, incluant :
 
-- **Optimisation locale par fenêtres** : Réarrangement des mots dans de petites fenêtres pour trouver des séquences meilleures.
-- **Sauts globaux** : Déplacement de groupes de mots à différentes positions dans la séquence.
-- **Échanges de blocs** : Échange de blocs de mots pour tester différentes configurations.
-- **Mélange global** : Réorganisation aléatoire de la séquence entière pour explorer de nouvelles configurations.
+- **Optimisation locale par fenêtres** : Réarrangement des mots dans de petites fenêtres pour trouver des séquences meilleures, avec un arrêt précoce pour éviter des calculs inutiles.
+  - **Exemple** : Pour la séquence "reindeer sleep walk the night", l'optimiseur pourrait réarranger la fenêtre "sleep walk the" en "walk sleep the" si cela réduit la perplexité.
+
+- **Sauts globaux** : Déplacement de groupes de mots à différentes positions dans la séquence, explorant des réarrangements à plus grande échelle.
+  - **Exemple** : Dans la séquence "reindeer sleep walk the night", l'optimiseur pourrait déplacer le groupe "sleep walk" à la fin, ce qui donnerait "reindeer the night sleep walk".
+
+- **Échanges de blocs** : Échange de blocs de mots pour tester différentes configurations, améliorant ainsi le flux global du texte.
+  - **Exemple** : Pour la séquence "reindeer sleep walk the night", l'optimiseur pourrait échanger les blocs "reindeer sleep" et "the night", ce qui donnerait "the night walk reindeer sleep".
+
+- **Mélange global** : Réorganisation aléatoire de la séquence entière pour explorer de nouvelles configurations, avec un arrêt précoce si aucune amélioration n'est trouvée.
+  - **Exemple** : La séquence "reindeer sleep walk the night" pourrait être mélangée pour devenir "night the walk sleep reindeer", afin d'explorer une disposition complètement nouvelle.
 
 ### Utilisation de modèles de langage
 
